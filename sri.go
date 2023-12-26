@@ -29,7 +29,7 @@ func main() {
 	}
 	sort.Strings(hashNames)
 	var hashName string
-	flag.StringVar(&hashName, "h", "sha384", fmt.Sprintf("hash function to use (one of %v)", hashNames))
+	flag.StringVar(&hashName, "hash", "sha384", fmt.Sprintf("hash function to use (one of %v)", hashNames))
 	flag.Parse()
 	hash, ok := hashes[hashName]
 	if !ok {
