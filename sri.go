@@ -3,9 +3,10 @@ package main
 
 import (
 	"crypto"
+	"encoding/base64"
 	"flag"
 	"fmt"
-	"http"
+	"net/http"
 	"io"
 	"os"
 	"sort"
@@ -43,7 +44,7 @@ func main() {
 	for _, f := range files {
 		go run(f, hash, ch)
 	}
-	ok := true
+	ok = true
 	suffix := len(files) > 1
 	for range files {
 		r := <- ch
@@ -109,7 +110,7 @@ func open(f string) (io.ReadCloser, error) {
 	if f == "-" {
 		return io.NopCloser(os.Stdin), nil
 	}
-	if strings.StartsWith(f, "http://") || strings.StartsWith(f, "https://) {
+	if strings.HasPrefix(f, "http://") || strings.HasPrefix(f, "https://") {
 		r, err := http.Get(f)
 		if err != nil {
 			return nil, err
