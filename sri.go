@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Binary sri computes secure hashes in Subresource Integrity format for files or URLs.
+// Binary sri computes secure hashes in Subresource Integrity format for files
+// or URLs.
 package main
 
 import (
