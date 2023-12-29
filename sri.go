@@ -95,6 +95,7 @@ If no files are given, reads standard input.
 A file named "-" is also interpreted to mean standard input.
 If zero or one positional arguments are given,
 print only the hash without a filename.
+
 `)
 	flag.PrintDefaults()
 }
