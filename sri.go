@@ -20,8 +20,8 @@ import (
 	"encoding/base64"
 	"flag"
 	"fmt"
-	"net/http"
 	"io"
+	"net/http"
 	"os"
 	"sort"
 	"strings"
@@ -61,7 +61,7 @@ func main() {
 	ok = true
 	suffix := len(files) > 1
 	for range files {
-		r := <- ch
+		r := <-ch
 		if r.err != nil {
 			fmt.Fprintf(os.Stderr, "sri: %s: %s\n", r.file, r.err)
 			ok = false
@@ -79,7 +79,7 @@ func main() {
 			fmt.Fprintf(os.Stderr, "sri: %s: %s", r.file, err)
 			ok = false
 		}
-	} 
+	}
 	if !ok {
 		os.Exit(1)
 	}
@@ -99,7 +99,7 @@ print only the hash without a filename.
 	flag.PrintDefaults()
 }
 
-func run(f string, hash crypto.Hash, ch chan <-result) {
+func run(f string, hash crypto.Hash, ch chan<- result) {
 	r, err := open(f)
 	if err != nil {
 		ch <- result{file: f, err: err}
@@ -116,7 +116,7 @@ func run(f string, hash crypto.Hash, ch chan <-result) {
 
 type result struct {
 	file string
-	err error
+	err  error
 	hash []byte
 }
 
