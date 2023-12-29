@@ -93,7 +93,7 @@ Computes a cryptographic hash for each of the given files or HTTP URLs.  For
 each file/URL, prints the hash in Subresource Integrity format, followed by a
 tab character, the filename/URL and a newline.  If no files are given, reads
 standard input.  A file named "-" is also interpreted to mean standard input.
-If zero or one positional arguments are given, print only the hash without a
+If zero or one positional arguments are given, prints only the hash without a
 filename.
 
 Options:
